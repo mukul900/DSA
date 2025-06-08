@@ -1,0 +1,48 @@
+Problem Statement: Given a matrix if an element in the matrix is 0 then you will have to set its entire column and row to 0 and then return the matrix.
+
+make the outer and the first row and fist column as the place to store the occurence of 0
+then traverse from the last of the matrix then check if its corresponding row or column has 0 then make that element 0
+
+other approach
+make two array row, col
+of size of col and row
+then store occurence of 0
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int arrColZero=-1;
+        int n= matrix.length;
+        int m= matrix[0].length;
+        // System.out.println(n+" "+m);
+        int[] rows= new int[m];
+        int[] col = new int[n];
+        Arrays.fill(rows,-1);
+        Arrays.fill(col,-1);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j]==0){
+                    rows[j]=0;
+                    col[i]=0;
+                }
+
+                }
+            }
+
+        for(int i=0;i<m;i++){
+            if(rows[i]==0){
+                for(int j=0;j<n;j++){
+                    matrix[j][i]=0;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(col[i]==0){
+                for(int j=0;j<m;j++){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+
+
+    }
+}
